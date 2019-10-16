@@ -1,4 +1,4 @@
-package com.zhuzichu.android.widget.dialog.toast
+package com.zhuzichu.android.widget.toast
 
 import android.annotation.SuppressLint
 import android.content.Context
