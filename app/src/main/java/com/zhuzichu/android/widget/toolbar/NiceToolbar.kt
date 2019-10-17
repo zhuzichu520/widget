@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.widget.TextViewCompat
 import com.zhuzichu.android.widget.R
 
 class NiceToolbar @JvmOverloads constructor(
@@ -35,7 +36,7 @@ class NiceToolbar @JvmOverloads constructor(
         set(value) {
             value?.let {
                 field = value
-                titleView.setTextAppearance(it)
+                TextViewCompat.setTextAppearance(titleView, it)
             }
         }
 
