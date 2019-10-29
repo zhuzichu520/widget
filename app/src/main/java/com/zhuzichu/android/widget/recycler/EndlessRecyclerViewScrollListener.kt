@@ -51,23 +51,21 @@ abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener
     override fun onScrolled(view: RecyclerView, dx: Int, dy: Int) {
         var lastVisibleItemPosition = 0
         val totalItemCount = mLayoutManager.itemCount
-
-        if (mLayoutManager is StaggeredGridLayoutManager) {
-            val lastVisibleItemPositions =
-                (mLayoutManager as StaggeredGridLayoutManager).findLastVisibleItemPositions(null)
-            lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions)
-        } else if (mLayoutManager is GridLayoutManager) {
-            lastVisibleItemPosition =
+        when (mLayoutManager) {
+            is StaggeredGridLayoutManager -> {
+                val lastVisibleItemPositions =
+                    (mLayoutManager as StaggeredGridLayoutManager).findLastVisibleItemPositions(null)
+                lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions)
+            }
+            is GridLayoutManager -> lastVisibleItemPosition =
                 (mLayoutManager as GridLayoutManager).findLastVisibleItemPosition()
-        } else if (mLayoutManager is LinearLayoutManager) {
-            lastVisibleItemPosition =
+            is LinearLayoutManager -> lastVisibleItemPosition =
                 (mLayoutManager as LinearLayoutManager).findLastVisibleItemPosition()
         }
-
         if (lastVisibleItemPosition + visibleThreshold > totalItemCount) {
-            onLoadMore(view,totalItemCount)
+            onScrollBottom(view, totalItemCount)
         }
     }
 
-    abstract fun onLoadMore(view: RecyclerView?, totalItemsCount: Int)
+    internal abstract fun onScrollBottom(view: RecyclerView?, totalItemsCount: Int)
 }
