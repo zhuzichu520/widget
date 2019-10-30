@@ -9,7 +9,7 @@ class BottomRecyclerView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
-    
+
     private var scrollListener: RecyclerViewScrollListener? = null
     private var onScrollBottomListener: OnScrollBottomListener? = null
 
@@ -25,7 +25,7 @@ class BottomRecyclerView @JvmOverloads constructor(
         scrollListener?.let { addOnScrollListener(it) }
     }
 
-    fun setOnPageChangeListener(onScrollBottomListener: OnScrollBottomListener) {
+    fun setOnScrollBottomListener(onScrollBottomListener: OnScrollBottomListener?) {
         this.onScrollBottomListener = onScrollBottomListener
     }
 }
