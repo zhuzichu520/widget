@@ -5,12 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
-abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener {
+abstract class RecyclerViewScrollListener : RecyclerView.OnScrollListener {
 
     private var visibleThreshold = 5
     private var previousTotalItemCount = 0
     private val startingPageIndex = 0
-
     private var mLayoutManager: RecyclerView.LayoutManager
 
     constructor(layoutManager: LinearLayoutManager) {
@@ -36,7 +35,7 @@ abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener
         }
     }
 
-   private fun getLastVisibleItem(lastVisibleItemPositions: IntArray): Int {
+    private fun getLastVisibleItem(lastVisibleItemPositions: IntArray): Int {
         var maxSize = 0
         for (i in lastVisibleItemPositions.indices) {
             if (i == 0) {
@@ -48,7 +47,8 @@ abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener
         return maxSize
     }
 
-    override fun onScrolled(view: RecyclerView, dx: Int, dy: Int) {
+    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+        super.onScrolled(recyclerView, dx, dy)
         var lastVisibleItemPosition = 0
         val totalItemCount = mLayoutManager.itemCount
         when (mLayoutManager) {
@@ -63,7 +63,7 @@ abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener
                 (mLayoutManager as LinearLayoutManager).findLastVisibleItemPosition()
         }
         if (lastVisibleItemPosition + visibleThreshold > totalItemCount) {
-            onScrollBottom(view, totalItemCount)
+            onScrollBottom(recyclerView, totalItemCount)
         }
     }
 

@@ -4,15 +4,19 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
 
-class PaginationRecyclerView(context: Context, attrs: AttributeSet?) :
-    RecyclerView(context, attrs) {
-    private var scrollListener: EndlessRecyclerViewScrollListener? = null
+class BottomRecyclerView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : RecyclerView(context, attrs, defStyleAttr) {
+    
+    private var scrollListener: RecyclerViewScrollListener? = null
     private var onScrollBottomListener: OnScrollBottomListener? = null
 
     override fun setLayoutManager(layout: LayoutManager?) {
         super.setLayoutManager(layout)
         if (scrollListener == null && layout != null) {
-            scrollListener = object : EndlessRecyclerViewScrollListener(layout) {
+            scrollListener = object : RecyclerViewScrollListener(layout) {
                 override fun onScrollBottom(view: RecyclerView?, totalItemsCount: Int) {
                     onScrollBottomListener?.onScrollBottom()
                 }
