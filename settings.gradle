@@ -1,2 +1,5 @@
 include ':app'
 rootProject.name='widget'
+
+include ':libs'
+project(':libs').projectDir = new File("../libs","app")
