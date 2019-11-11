@@ -1,10 +1,10 @@
 package com.zhuzichu.android.widget.notify
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.service.notification.StatusBarNotification
 import androidx.annotation.VisibleForTesting
 import androidx.core.app.NotificationCompat
-
 
 internal class NotifyExtender : NotificationCompat.Extender {
 
@@ -31,36 +31,24 @@ internal class NotifyExtender : NotificationCompat.Extender {
     }
 
     var valid: Boolean = false
-        internal set(value) {
-            field = value
-        }
-
+        internal set
     var stackable: Boolean = false
-        internal set(value) {
-            field = value
-        }
+        internal set
     var stacked: Boolean = false
-        internal set(value) {
-            field = value
-        }
+        internal set
     var stackKey: CharSequence? = null
-        internal set(value) {
-            field = value
-        }
+        internal set
     var stackItems: ArrayList<CharSequence>? = null
-        internal set(value) {
-            field = value
-        }
+        internal set
 
     var summaryContent: CharSequence? = null
-        internal set(value) {
-            field = value
-        }
+        internal set
 
     constructor() {
         this.valid = true
     }
 
+    @SuppressLint("NewApi")
     constructor(notification: StatusBarNotification) {
         NotificationCompat.getExtras(notification.notification)?.let { bundle ->
             bundle.getBundle(EXTRA_NOTIFY_EXTENSIONS)?.let {
