@@ -18,6 +18,9 @@ class NiceToolbar @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
+    private val root: View? = LayoutInflater.from(context)
+        .inflate(R.layout.layout_toolbar, this, true)
+
     private val titleView: TextView by lazy { findViewById<TextView>(R.id.title) }
 
     private val leftLayout by lazy { findViewById<View>(R.id.left_layout) }
