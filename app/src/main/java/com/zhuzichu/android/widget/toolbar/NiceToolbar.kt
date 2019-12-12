@@ -18,15 +18,15 @@ class NiceToolbar @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val titleView: TextView = findViewById(R.id.title)
+    private val titleView: TextView by lazy { findViewById<TextView>(R.id.title) }
 
-    private val leftLayout = findViewById<View>(R.id.left_layout)
-    private val leftTextView: TextView = findViewById(R.id.left_text)
-    private val leftIconView: ImageView = findViewById(R.id.left_icon)
+    private val leftLayout by lazy { findViewById<View>(R.id.left_layout) }
+    private val leftTextView: TextView by lazy { findViewById<TextView>(R.id.left_text) }
+    private val leftIconView: ImageView by lazy { findViewById<ImageView>(R.id.left_icon) }
 
-    private val rightLayout = findViewById<View>(R.id.right_layout)
-    private val rightTextView: TextView = findViewById(R.id.right_text)
-    private val rightIconView: ImageView = findViewById(R.id.right_icon)
+    private val rightLayout by lazy { findViewById<View>(R.id.right_layout) }
+    private val rightTextView: TextView by lazy { findViewById<TextView>(R.id.right_text) }
+    private val rightIconView: ImageView by lazy { findViewById<ImageView>(R.id.right_icon) }
 
     var titleText: String? = null
         set(value) {
@@ -70,7 +70,7 @@ class NiceToolbar @JvmOverloads constructor(
             }
         }
 
-    var onOnClickLeftListener: OnClickListener? = null
+    var onClickLeftListener: OnClickListener? = null
         set(value) {
             value?.let {
                 field = value
@@ -104,7 +104,7 @@ class NiceToolbar @JvmOverloads constructor(
             }
         }
 
-    var onOnClickRightListener: OnClickListener? = null
+    var onClickRightListener: OnClickListener? = null
         set(value) {
             value?.let {
                 field = value
@@ -116,6 +116,7 @@ class NiceToolbar @JvmOverloads constructor(
         val arr = context.obtainStyledAttributes(attrs, R.styleable.NiceToolbar, 0, 0)
 
         titleText = arr.getString(R.styleable.NiceToolbar_toolbarTitle)
+
         titleTextAppearance = arr.getResourceId(
             R.styleable.NiceToolbar_toolbarTitleTextAppearance,
             R.attr.titleTextAppearance
