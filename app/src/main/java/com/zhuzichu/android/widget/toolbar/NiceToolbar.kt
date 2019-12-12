@@ -115,7 +115,9 @@ class NiceToolbar @JvmOverloads constructor(
     init {
         val arr = context.obtainStyledAttributes(attrs, R.styleable.NiceToolbar, 0, 0)
 
-        titleText = arr.getString(R.styleable.NiceToolbar_toolbarTitle)
+        arr.getString(R.styleable.NiceToolbar_toolbarTitle)?.let {
+            titleText = it
+        }
 
         titleTextAppearance = arr.getResourceId(
             R.styleable.NiceToolbar_toolbarTitleTextAppearance,
