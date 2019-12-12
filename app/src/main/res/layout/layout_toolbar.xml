@@ -4,26 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="50dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        tools:text="标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题" />
-
     <FrameLayout
-        android:id="@+id/navigation_layout"
+        android:id="@+id/left_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"
+        android:visibility="invisible">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/navigation_text"
+            android:id="@+id/left_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -31,7 +21,48 @@
             android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/navigation_icon"
+            android:id="@+id/left_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toStartOf="@+id/right_layout"
+        android:layout_toEndOf="@+id/left_layout"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        tools:text="标题标题标题标题标题标题标题" />
+
+
+    <FrameLayout
+        android:id="@+id/right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:visibility="invisible">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/right_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center" />

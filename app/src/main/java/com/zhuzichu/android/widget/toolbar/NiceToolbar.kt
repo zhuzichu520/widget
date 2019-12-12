@@ -18,11 +18,15 @@ class NiceToolbar @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val root: View? = LayoutInflater.from(context)
-        .inflate(R.layout.layout_toolbar, this, true)
     private val titleView: TextView = findViewById(R.id.title)
-    private val navigationTextView: TextView = findViewById(R.id.navigation_text)
-    private val navigationIconView: ImageView = findViewById(R.id.navigation_icon)
+
+    private val leftLayout = findViewById<View>(R.id.left_layout)
+    private val leftTextView: TextView = findViewById(R.id.left_text)
+    private val leftIconView: ImageView = findViewById(R.id.left_icon)
+
+    private val rightLayout = findViewById<View>(R.id.right_layout)
+    private val rightTextView: TextView = findViewById(R.id.right_text)
+    private val rightIconView: ImageView = findViewById(R.id.right_icon)
 
     var titleText: String? = null
         set(value) {
@@ -40,47 +44,97 @@ class NiceToolbar @JvmOverloads constructor(
             }
         }
 
-    var navigationText: String? = null
+    var leftText: String? = null
         set(value) {
             value?.let {
                 field = value
-                navigationTextView.text = it
+                leftTextView.text = it
+                leftLayout.visibility = View.VISIBLE
             }
         }
 
-    private var navigationDrawable: Drawable? = null
+    private var leftDrawable: Drawable? = null
         set(value) {
             value?.let {
                 field = value
-                navigationIconView.setImageDrawable(it)
+                leftIconView.setImageDrawable(it)
+                leftLayout.visibility = View.VISIBLE
             }
         }
 
-    var navigationIcon: Int? = null
+    var leftIcon: Int? = null
         set(value) {
             value?.let {
                 field = value
-                navigationDrawable = AppCompatResources.getDrawable(context, it)
+                leftDrawable = AppCompatResources.getDrawable(context, it)
             }
         }
 
-    var onOnClickNavigationListener: OnClickListener? = null
+    var onOnClickLeftListener: OnClickListener? = null
         set(value) {
             value?.let {
                 field = value
-                root?.findViewById<View>(R.id.navigation_layout)?.setOnClickListener(it)
+                leftLayout.setOnClickListener(it)
+            }
+        }
+
+    var rightText: String? = null
+        set(value) {
+            value?.let {
+                field = value
+                rightTextView.text = it
+                rightLayout.visibility = View.VISIBLE
+            }
+        }
+
+    private var rightDrawable: Drawable? = null
+        set(value) {
+            value?.let {
+                field = value
+                rightIconView.setImageDrawable(it)
+                rightLayout.visibility = View.VISIBLE
+            }
+        }
+
+    var rightIcon: Int? = null
+        set(value) {
+            value?.let {
+                field = value
+                rightDrawable = AppCompatResources.getDrawable(context, it)
+            }
+        }
+
+    var onOnClickRightListener: OnClickListener? = null
+        set(value) {
+            value?.let {
+                field = value
+                rightLayout.setOnClickListener(it)
             }
         }
 
     init {
         val arr = context.obtainStyledAttributes(attrs, R.styleable.NiceToolbar, 0, 0)
+
         titleText = arr.getString(R.styleable.NiceToolbar_toolbarTitle)
-        navigationText = arr.getString(R.styleable.NiceToolbar_toolbarNavigationText)
-        navigationDrawable = arr.getDrawable(R.styleable.NiceToolbar_toolbarNavigationIcon)
         titleTextAppearance = arr.getResourceId(
             R.styleable.NiceToolbar_toolbarTitleTextAppearance,
             R.attr.titleTextAppearance
         )
+
+        arr.getString(R.styleable.NiceToolbar_toolbarLeftText)?.let {
+            leftText = it
+        }
+        arr.getDrawable(R.styleable.NiceToolbar_toolbarLeftIcon)?.let {
+            leftDrawable = it
+        }
+
+        arr.getString(R.styleable.NiceToolbar_toolbarRightText)?.let {
+            rightText = it
+        }
+        arr.getDrawable(R.styleable.NiceToolbar_toolbarRightIcon)?.let {
+            rightDrawable = it
+        }
+
         arr.recycle()
     }
 }

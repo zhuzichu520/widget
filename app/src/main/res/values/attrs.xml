@@ -3,8 +3,10 @@
 
     <declare-styleable name="NiceToolbar">
         <attr name="toolbarTitle" format="string" />
-        <attr name="toolbarNavigationText" format="string" />
-        <attr name="toolbarNavigationIcon" format="reference" />
+        <attr name="toolbarLeftText" format="string" />
+        <attr name="toolbarLeftIcon" format="reference" />
+        <attr name="toolbarRightText" format="string" />
+        <attr name="toolbarRightIcon" format="reference" />
         <attr name="toolbarTitleTextAppearance" format="reference" />
     </declare-styleable>
 
