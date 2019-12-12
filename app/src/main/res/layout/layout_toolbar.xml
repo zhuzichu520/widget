@@ -5,7 +5,7 @@
     android:layout_height="50dp">
 
     <FrameLayout
-        android:id="@+id/left_layout"
+        android:id="@+id/start_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:paddingStart="16dp"
@@ -13,7 +13,7 @@
         android:visibility="invisible">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/left_text"
+            android:id="@+id/start_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -21,7 +21,7 @@
             android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/left_icon"
+            android:id="@+id/start_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center" />
@@ -34,8 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_toStartOf="@+id/right_layout"
-        android:layout_toEndOf="@+id/left_layout"
+        android:layout_toStartOf="@+id/end_layout"
+        android:layout_toEndOf="@+id/start_layout"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
@@ -44,7 +44,7 @@
         tools:text="标题标题标题标题标题标题标题" />
 
     <FrameLayout
-        android:id="@+id/right_layout"
+        android:id="@+id/end_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
@@ -53,7 +53,7 @@
         android:visibility="invisible">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/right_text"
+            android:id="@+id/end_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -61,7 +61,7 @@
             android:textSize="14sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/right_icon"
+            android:id="@+id/end_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center" />

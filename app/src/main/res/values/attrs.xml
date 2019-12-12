@@ -2,10 +2,10 @@
 <resources>
     <declare-styleable name="NiceToolbar">
         <attr name="toolbarTitle" format="string" />
-        <attr name="toolbarLeftText" format="string" />
-        <attr name="toolbarLeftIcon" format="reference" />
-        <attr name="toolbarRightText" format="string" />
-        <attr name="toolbarRightIcon" format="reference" />
+        <attr name="toolbarStartText" format="string" />
+        <attr name="toolbarStartIcon" format="reference" />
+        <attr name="toolbarEndText" format="string" />
+        <attr name="toolbarEndIcon" format="reference" />
         <attr name="toolbarTitleTextAppearance" format="reference" />
     </declare-styleable>
 </resources>

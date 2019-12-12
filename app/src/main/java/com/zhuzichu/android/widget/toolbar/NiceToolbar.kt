@@ -23,13 +23,13 @@ class NiceToolbar @JvmOverloads constructor(
 
     private val titleView: TextView by lazy { findViewById<TextView>(R.id.title) }
 
-    private val leftLayout by lazy { findViewById<View>(R.id.left_layout) }
-    private val leftTextView: TextView by lazy { findViewById<TextView>(R.id.left_text) }
-    private val leftIconView: ImageView by lazy { findViewById<ImageView>(R.id.left_icon) }
+    private val startLayout by lazy { findViewById<View>(R.id.start_layout) }
+    private val startTextView: TextView by lazy { findViewById<TextView>(R.id.start_text) }
+    private val startIconView: ImageView by lazy { findViewById<ImageView>(R.id.start_icon) }
 
-    private val rightLayout by lazy { findViewById<View>(R.id.right_layout) }
-    private val rightTextView: TextView by lazy { findViewById<TextView>(R.id.right_text) }
-    private val rightIconView: ImageView by lazy { findViewById<ImageView>(R.id.right_icon) }
+    private val endLayout by lazy { findViewById<View>(R.id.end_layout) }
+    private val endTextView: TextView by lazy { findViewById<TextView>(R.id.end_text) }
+    private val endIconView: ImageView by lazy { findViewById<ImageView>(R.id.end_icon) }
 
     var titleText: String? = null
         set(value) {
@@ -47,71 +47,71 @@ class NiceToolbar @JvmOverloads constructor(
             }
         }
 
-    var leftText: String? = null
+    var startText: String? = null
         set(value) {
             value?.let {
                 field = value
-                leftTextView.text = it
-                leftLayout.visibility = View.VISIBLE
+                startTextView.text = it
+                startLayout.visibility = View.VISIBLE
             }
         }
 
-    private var leftDrawable: Drawable? = null
+    private var startDrawable: Drawable? = null
         set(value) {
             value?.let {
                 field = value
-                leftIconView.setImageDrawable(it)
-                leftLayout.visibility = View.VISIBLE
+                startIconView.setImageDrawable(it)
+                startLayout.visibility = View.VISIBLE
             }
         }
 
-    var leftIcon: Int? = null
+    var startIcon: Int? = null
         set(value) {
             value?.let {
                 field = value
-                leftDrawable = AppCompatResources.getDrawable(context, it)
+                startDrawable = AppCompatResources.getDrawable(context, it)
             }
         }
 
-    var onClickLeftListener: OnClickListener? = null
+    var onClickStartListener: OnClickListener? = null
         set(value) {
             value?.let {
                 field = value
-                leftLayout.setOnClickListener(it)
+                startLayout.setOnClickListener(it)
             }
         }
 
-    var rightText: String? = null
+    var endText: String? = null
         set(value) {
             value?.let {
                 field = value
-                rightTextView.text = it
-                rightLayout.visibility = View.VISIBLE
+                endTextView.text = it
+                endLayout.visibility = View.VISIBLE
             }
         }
 
-    private var rightDrawable: Drawable? = null
+    private var endDrawable: Drawable? = null
         set(value) {
             value?.let {
                 field = value
-                rightIconView.setImageDrawable(it)
-                rightLayout.visibility = View.VISIBLE
+                endIconView.setImageDrawable(it)
+                endLayout.visibility = View.VISIBLE
             }
         }
 
-    var rightIcon: Int? = null
+    var endIcon: Int? = null
         set(value) {
             value?.let {
                 field = value
-                rightDrawable = AppCompatResources.getDrawable(context, it)
+                endDrawable = AppCompatResources.getDrawable(context, it)
             }
         }
 
-    var onClickRightListener: OnClickListener? = null
+    var onClickEndListener: OnClickListener? = null
         set(value) {
             value?.let {
                 field = value
-                rightLayout.setOnClickListener(it)
+                endLayout.setOnClickListener(it)
             }
         }
 
@@ -127,18 +127,18 @@ class NiceToolbar @JvmOverloads constructor(
             R.attr.titleTextAppearance
         )
 
-        arr.getString(R.styleable.NiceToolbar_toolbarLeftText)?.let {
-            leftText = it
+        arr.getString(R.styleable.NiceToolbar_toolbarStartText)?.let {
+            startText = it
         }
-        arr.getDrawable(R.styleable.NiceToolbar_toolbarLeftIcon)?.let {
-            leftDrawable = it
+        arr.getDrawable(R.styleable.NiceToolbar_toolbarStartIcon)?.let {
+            startDrawable = it
         }
 
-        arr.getString(R.styleable.NiceToolbar_toolbarRightText)?.let {
-            rightText = it
+        arr.getString(R.styleable.NiceToolbar_toolbarEndText)?.let {
+            endText = it
         }
-        arr.getDrawable(R.styleable.NiceToolbar_toolbarRightIcon)?.let {
-            rightDrawable = it
+        arr.getDrawable(R.styleable.NiceToolbar_toolbarEndIcon)?.let {
+            endDrawable = it
         }
 
         arr.recycle()
