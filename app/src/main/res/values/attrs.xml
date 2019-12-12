@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="NiceToolbar">
         <attr name="toolbarTitle" format="string" />
         <attr name="toolbarLeftText" format="string" />
@@ -9,5 +8,4 @@
         <attr name="toolbarRightIcon" format="reference" />
         <attr name="toolbarTitleTextAppearance" format="reference" />
     </declare-styleable>
-
 </resources>
