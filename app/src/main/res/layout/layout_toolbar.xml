@@ -39,8 +39,6 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
         tools:text="标题标题标题标题标题标题标题" />
 
     <FrameLayout
