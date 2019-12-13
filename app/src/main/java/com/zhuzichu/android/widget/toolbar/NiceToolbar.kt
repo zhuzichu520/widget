@@ -21,15 +21,15 @@ class NiceToolbar @JvmOverloads constructor(
     private val root: View? = LayoutInflater.from(context)
         .inflate(R.layout.layout_toolbar, this, true)
 
-    private val titleView: TextView by lazy { findViewById(R.id.title) }
+    private val titleView: TextView by lazy { findViewById<TextView>(R.id.title) }
 
     private val startLayout by lazy { findViewById<View>(R.id.start_layout) }
-    private val startTextView: TextView by lazy { findViewById(R.id.start_text) }
-    private val startIconView: ImageView by lazy { findViewById(R.id.start_icon) }
+    private val startTextView: TextView by lazy { findViewById<TextView>(R.id.start_text) }
+    private val startIconView: ImageView by lazy { findViewById<ImageView>(R.id.start_icon) }
 
     private val endLayout by lazy { findViewById<View>(R.id.end_layout) }
-    private val endTextView: TextView by lazy { findViewById(R.id.end_text) }
-    private val endIconView: ImageView by lazy { findViewById(R.id.end_icon) }
+    private val endTextView: TextView by lazy { findViewById<TextView>(R.id.end_text) }
+    private val endIconView: ImageView by lazy { findViewById<ImageView>(R.id.end_icon) }
 
     var titleText: String? = null
         set(value) {
